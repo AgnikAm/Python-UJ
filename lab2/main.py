@@ -1,11 +1,23 @@
-from line import *
-from lista import *
+from string_operations import *
+from nums_operations import *
 
+def get_numbers():
+    numbers = []
+    while True:
+        try:
+            user_input = input("Enter a number (or 'q' to quit): ")
+            if user_input.lower() == 'q':
+                break
+            number = int(user_input)
+            numbers.append(number)
+        except ValueError:
+            print("Invalid input. Please enter a number or 'q' to quit.")
+    return numbers
 
 def main():
     line = input("Enter text: ")
     word = input("Enter word: ")
-    lista = [2, 105, 320, 52, 6, 70, 90]
+    L = get_numbers()
 
     print(f"Number of words: {count_words(line)}")
     print(f"Underscored word: {underscore(word)}")
@@ -17,11 +29,12 @@ def main():
     print(f"Text sorted alphabetically: {alpha_sort(line)}")
     print(f"Text sorted by length of words: {len_sort(line)}")
 
-    print(f"String made of list: {create_string(lista)}")
-    count_zeros(lista)
+    print(f"String made of list: {create_string(L)}")
+    for x in L:
+        print(f"zeros in {x}: {count_zeros(x)}")
     print(f"numbers from the list in a new format:")
-    transform(lista)
-
+    for x in L:
+        print(transform(x))
 
 if __name__ == '__main__':
     main()
