@@ -1,0 +1,44 @@
+3.1
+x = 2; y = 3;
+if (x > y):
+    result = x;
+else:
+    result = y;
+Kod jest poprawny składniowo, chociaż można pominąć nawiasy w instrukcji warunkowej.
+
+for i in "axby": if ord(i) < 100: print (i)
+Kod nie jest poprawny ze względu na użycie instrukcji złożonej bez wcięcia.
+Poprawiona wersja:
+for i in "axby":
+    if ord(i) < 100:
+        print(i)
+
+for i in "axby": print (ord(i) if ord(i) < 100 else i)
+Kod jest poprawny składniowo.
+
+3.2
+L = [3, 5, 4] ; L = L.sort()
+Metoda sort sortuje listę "in place" i zwraca None.
+Poprawiona wersja:
+L = [3, 5, 4] ; L.sort()
+
+x, y = 1, 2, 3
+Próba przypisania trzech wartości do dwóch zmiennych
+
+X = 1, 2, 3 ; X[1] = 4
+Próba modyfikacji krotki, które w Pythonie są niemutowalne
+
+X = [1, 2, 3] ; X[3] = 4
+Próba przypisania wartości do indeksu listy, który nie istnieje.
+Poprawiona wersja:
+X = [1, 2, 3] ; X.append(4)
+
+X = "abc" ; X.append("d")
+Append jest metodą listy, a X jest strigniem, więc nie można jej użyć.
+Poprawiona wersja:
+X = "abc" ; X += "d"
+
+L = list(map(pow, range(8)))
+Funkcja map jako argument przyjmuje funkcję oraz sekwencję. W funkcji pow nie podano argumentów.
+Poprawiona wersja:
+L = list(map(lambda x: pow(x, 2), range(8)))
