@@ -1,9 +1,8 @@
 from functions import *
 
 def main():
-    sequence = [1,(2,3),[],[4,(5,6,7)],8,[9]]
-    print(flatten(sequence))
-
+    print(make_ruler(12))
+    print(make_grid(2, 4))
 
 if __name__ == '__main__':
     main()
