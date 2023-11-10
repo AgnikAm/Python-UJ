@@ -58,8 +58,7 @@ def sum_seq(sequence):
     sums = []
     for item in sequence:
         if isinstance(item, (list, tuple)):
-            nested_sum = sum_seq(item)
-            sums.append(sum(nested_sum))
+            sums.append(sum(sum_seq(item)))
         else:
             sums.append(item)
     return sums
