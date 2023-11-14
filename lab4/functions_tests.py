@@ -15,6 +15,17 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(factorial(9), 362880)
         self.assertEqual(factorial(10), 3628800)
 
+        self.assertEqual(rec_factorial(1), 1)
+        self.assertEqual(rec_factorial(2), 2)
+        self.assertEqual(rec_factorial(3), 6)
+        self.assertEqual(rec_factorial(4), 24)
+        self.assertEqual(rec_factorial(5), 120)
+        self.assertEqual(rec_factorial(6), 720)
+        self.assertEqual(rec_factorial(7), 5040)
+        self.assertEqual(rec_factorial(8), 40320)
+        self.assertEqual(rec_factorial(9), 362880)
+        self.assertEqual(rec_factorial(10), 3628800)
+
     def test_fibonacci(self):
         self.assertEqual(fibonacci(0), 0)
         self.assertEqual(fibonacci(1), 1)
@@ -27,6 +38,18 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(fibonacci(8), 21)
         self.assertEqual(fibonacci(9), 34)
         self.assertEqual(fibonacci(10), 55)
+
+        self.assertEqual(rec_fibonacci(0), 0)
+        self.assertEqual(rec_fibonacci(1), 1)
+        self.assertEqual(rec_fibonacci(2), 1)
+        self.assertEqual(rec_fibonacci(3), 2)
+        self.assertEqual(rec_fibonacci(4), 3)
+        self.assertEqual(rec_fibonacci(5), 5)
+        self.assertEqual(rec_fibonacci(6), 8)
+        self.assertEqual(rec_fibonacci(7), 13)
+        self.assertEqual(rec_fibonacci(8), 21)
+        self.assertEqual(rec_fibonacci(9), 34)
+        self.assertEqual(rec_fibonacci(10), 55)
 
     def test_odwracanie(self):
         list1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]

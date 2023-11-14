@@ -27,6 +27,16 @@ def make_grid(rows, cols):
 
 # 4.3
 def factorial(n):
+  if n == 0:
+    return 1
+  
+  result = 1
+  for i in range(1, n+1):
+    result *= i
+
+  return result
+
+def rec_factorial(n):
     if n == 1:
         return 1
     else:
@@ -34,6 +44,17 @@ def factorial(n):
 
 # 4.4
 def fibonacci(n):
+  if n == 0:
+    return 0
+  elif n == 1:
+    return 1
+  else:
+    f0, f1 = 0, 1
+    for _ in range(n - 1):
+      f0, f1 = f1, f0 + f1
+    return f1
+
+def rec_fibonacci(n):
     if n == 0:
         return 0
     elif n == 1:
