@@ -11,6 +11,7 @@ class TestFractions(unittest.TestCase):
         self.assertEqual(add_frac([0, 2], [1, 3]), [2, 6])
         with self.assertRaises(ValueError):
             add_frac([1, 0], [1, 3])
+            add_frac([1, 2], [1, 0])
 
     def test_sub_frac(self):
         self.assertEqual(sub_frac([1, 2], [1, 3]), [1, 6])
@@ -18,6 +19,7 @@ class TestFractions(unittest.TestCase):
         self.assertEqual(sub_frac([0, 2], [1, 3]), [-2, 6])
         with self.assertRaises(ValueError):
             sub_frac([1, 0], [1, 3])
+            sub_frac([1, 2], [1, 0])
 
     def test_mul_frac(self):
         self.assertEqual(mul_frac([1, 2], [1, 3]), [1, 6])
@@ -26,6 +28,7 @@ class TestFractions(unittest.TestCase):
         self.assertEqual(mul_frac([1, 4], [-1, 4]), [-1, 16])
         with self.assertRaises(ValueError):
             mul_frac([1, 0], [1, 3])
+            mul_frac([1, 2], [1, 0])
 
     def test_div_frac(self):
         self.assertEqual(div_frac([1, 2], [1, 3]), [3, 2])
@@ -34,6 +37,8 @@ class TestFractions(unittest.TestCase):
         self.assertEqual(div_frac([1, 4], [-1, 4]), [4, -4])
         with self.assertRaises(ValueError):
             div_frac([1, 0], [1, 3])
+            div_frac([1, 2], [1, 0])
+            div_frac([1, 2], [0, 2])
 
     def test_is_positive(self):
         self.assertEqual(is_positive([1, 2]), True)
@@ -51,7 +56,15 @@ class TestFractions(unittest.TestCase):
         with self.assertRaises(ValueError):
             is_zero([1, 0])
 
-    def test_cmp_frac(self): pass
+    def test_cmp_frac(self):
+        self.assertEqual(cmp_frac([-1, 2], [1, -2]), 0)
+        self.assertEqual(cmp_frac([0, 1], [0, 2]), 0)
+        self.assertEqual(cmp_frac([3, 1], [6, 2]), 0)
+        self.assertEqual(cmp_frac([-3, 4], [1, 2]), -1)
+        self.assertEqual(cmp_frac([1, 2], [3, -4]), 1)
+        with self.assertRaises(ValueError):
+            cmp_frac([1, 0], [1, 3])
+            cmp_frac([1, 2], [1, 0])
 
     def test_frac2float(self):
         self.assertEqual(frac2float([1, 2]), 0.5)
