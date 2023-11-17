@@ -75,8 +75,13 @@ def simplify(frac):
   simplified_frac = [frac[0] / gcd(frac[0], frac[1]), frac[1] / gcd(frac[0], frac[1])]
   return simplified_frac
 
+def is_negative(frac):
+  if np.sum(np.array(frac) < 0, axis = 0) == 1:
+    return True
+  else: return False
+
 def sign_compatibility(frac1, frac2):
-  return np.sum(np.array(frac1) < 0, axis=0) == np.sum(np.array(frac2) < 0, axis=0)
+  return (is_negative(frac1) == is_negative(frac2))
 
 def cmp_frac(frac1, frac2):
   try:
@@ -86,9 +91,12 @@ def cmp_frac(frac1, frac2):
     simplified_frac1 = simplify(frac1)
     simplified_frac2 = simplify(frac2)
 
-    if(sign_compatibility(simplified_frac1, simplified_frac2)):
+    if (sign_compatibility(simplified_frac1, simplified_frac2)):
       simplified_frac1 = [x if x >= 0 else -x for x in simplified_frac1]
       simplified_frac2 = [x if x >= 0 else -x for x in simplified_frac2]
+    elif is_negative(frac1):
+      return -1
+    else: return 1
 
     if simplified_frac1 < simplified_frac2:
       return -1
