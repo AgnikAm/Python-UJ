@@ -60,8 +60,9 @@ class TestFractions(unittest.TestCase):
         self.assertEqual(cmp_frac([-1, 2], [1, -2]), 0)
         self.assertEqual(cmp_frac([0, 1], [0, 2]), 0)
         self.assertEqual(cmp_frac([3, 1], [6, 2]), 0)
-        self.assertEqual(cmp_frac([-3, 4], [1, 2]), -1)
+        self.assertEqual(cmp_frac([3, -4], [1, 2]), -1)
         self.assertEqual(cmp_frac([1, 2], [3, -4]), 1)
+        self.assertEqual(cmp_frac([-4, -1], [-5, -1]), -1)
         with self.assertRaises(ValueError):
             cmp_frac([1, 0], [1, 3])
             cmp_frac([1, 2], [1, 0])
