@@ -4,6 +4,7 @@ def check_denominator(frac):
   if frac[1] == 0:
     raise ZeroDivisionError("Invalid input: zero in the denominator")
 
+
 def add_frac(frac1, frac2):
   check_denominator(frac1)
   check_denominator(frac2)
@@ -11,6 +12,7 @@ def add_frac(frac1, frac2):
   new_denominator = frac1[1] * frac2[1]
 
   return [(new_denominator / frac1[1]) * frac1[0] + (new_denominator / frac2[1]) * frac2[0], new_denominator]
+
 
 def sub_frac(frac1, frac2):
   check_denominator(frac1)
@@ -21,11 +23,13 @@ def sub_frac(frac1, frac2):
 
   return [new_numerator, new_denominator]
 
+
 def mul_frac(frac1, frac2):
   check_denominator(frac1)
   check_denominator(frac2)
 
   return [frac1[0] * frac2[0], frac1[1] * frac2[1]]
+
 
 def div_frac(frac1, frac2):
   check_denominator(frac1)
