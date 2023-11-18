@@ -45,6 +45,7 @@ class TestFractions(unittest.TestCase):
         self.assertEqual(is_positive([-3, 4]), False)
         self.assertEqual(is_positive([0, 2]), "The number is zero")
         self.assertEqual(is_positive([1, -4]), False)
+        self.assertEqual(is_positive([-1, -4]), True)
         with self.assertRaises(ValueError):
             is_positive([1, 0])
 
