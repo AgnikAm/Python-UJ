@@ -29,3 +29,4 @@ class Rectangle:
         self.pt2.x += x
         self.pt1.y += y
         self.pt2.y += y
+        return self.pt1.x, self.pt1.y, self.pt2.x, self.pt2.y
