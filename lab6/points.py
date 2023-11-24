@@ -14,7 +14,7 @@ class Point:
         return self.x == other.x and self.y == other.y
 
     def __ne__(self, other):
-        return not (self.x == other.x and self.y == other.y)
+        return not self == other
 
     # Punkty jako wektory 2D.
     def __add__(self, other):
