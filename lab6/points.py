@@ -1,8 +1,11 @@
 class Point:
 
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        try:
+            self.x = float(x)
+            self.y = float(y)
+        except ValueError:
+            raise ValueError("Invalid input. Coordinates must be numbers")
 
     def __str__(self):
         return f"({self.x}, {self.y})"
