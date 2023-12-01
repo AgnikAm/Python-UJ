@@ -28,14 +28,14 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(Rectangle(9, 9, 10, 10).__ne__(Rectangle(10, 10, 10, 10)), True)
 
     def test_center(self):
-        self.assertEqual(Rectangle(0, 0, 4, 4).center(), (2, 2))
-        self.assertEqual(Rectangle(-2, -2, 2, 2).center(), (0, 0))
-        self.assertEqual(Rectangle(0, -5, 4, 5).center(), (2, 0))
-        self.assertEqual(Rectangle(9, 9, 10, 10).center(), (9.5, 9.5))
-        self.assertEqual(Rectangle(2, 3, 5, 6).center(), (3.5, 4.5))
-        self.assertEqual(Rectangle(2, 5, 6, 10).center(), (4, 7.5))
-        self.assertEqual(Rectangle(0, 1, 3, 2).center(), (1.5, 1.5))
-        self.assertEqual(Rectangle(5, 5, 0, 2).center(), (2.5, 3.5))
+        self.assertEqual(Rectangle(0, 0, 4, 4).center(), Point(2, 2))
+        self.assertEqual(Rectangle(-2, -2, 2, 2).center(), Point(0, 0))
+        self.assertEqual(Rectangle(0, -5, 4, 5).center(), Point(2, 0))
+        self.assertEqual(Rectangle(9, 9, 10, 10).center(), Point(9.5, 9.5))
+        self.assertEqual(Rectangle(2, 3, 5, 6).center(), Point(3.5, 4.5))
+        self.assertEqual(Rectangle(2, 5, 6, 10).center(), Point(4, 7.5))
+        self.assertEqual(Rectangle(0, 1, 3, 2).center(), Point(1.5, 1.5))
+        self.assertEqual(Rectangle(5, 5, 0, 2).center(), Point(2.5, 3.5))
 
     def test_area(self):
         self.assertEqual(Rectangle(0, 0, 4, 4).area(), 16)
@@ -48,14 +48,14 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(Rectangle(5, 5, 0, 2).area(), 15)
 
     def test_move(self):
-        self.assertEqual(Rectangle(0, 0, 4, 4).move(1, 0), (1, 0, 5, 4))
-        self.assertEqual(Rectangle(-2, -2, 2, 2).move(2, 2), (0, 0, 4, 4))
-        self.assertEqual(Rectangle(0, -5, 4, 5).move(0, -3), (0, -8, 4, 2))
-        self.assertEqual(Rectangle(9, 9, 10, 10).move(2, 10), (11, 19, 12, 20))
-        self.assertEqual(Rectangle(2, 3, 5, 6).move(2.5, 3.5), (4.5, 6.5, 7.5, 9.5))
-        self.assertEqual(Rectangle(2, 5, 6, 10).move(-1, -1), (1, 4, 5, 9))
-        self.assertEqual(Rectangle(0, 1, 3, 2).move(0, 0), (0, 1, 3, 2))
-        self.assertEqual(Rectangle(5, 5, 0, 2).move(-10, 10), (-5, 15, -10, 12))
+        self.assertEqual(Rectangle(0, 0, 4, 4).move(1, 0), Rectangle(1, 0, 5, 4))
+        self.assertEqual(Rectangle(-2, -2, 2, 2).move(2, 2), Rectangle(0, 0, 4, 4))
+        self.assertEqual(Rectangle(0, -5, 4, 5).move(0, -3), Rectangle(0, -8, 4, 2))
+        self.assertEqual(Rectangle(9, 9, 10, 10).move(2, 10), Rectangle(11, 19, 12, 20))
+        self.assertEqual(Rectangle(2, 3, 5, 6).move(2.5, 3.5), Rectangle(4.5, 6.5, 7.5, 9.5))
+        self.assertEqual(Rectangle(2, 5, 6, 10).move(-1, -1), Rectangle(1, 4, 5, 9))
+        self.assertEqual(Rectangle(0, 1, 3, 2).move(0, 0), Rectangle(0, 1, 3, 2))
+        self.assertEqual(Rectangle(5, 5, 0, 2).move(-10, 10), Rectangle(-5, 15, -10, 12))
 
 if __name__ == '__main__':
     unittest.main()

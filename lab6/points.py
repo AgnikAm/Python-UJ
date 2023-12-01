@@ -1,11 +1,10 @@
 class Point:
 
     def __init__(self, x, y):
-        try:
-            self.x = float(x)
-            self.y = float(y)
-        except ValueError:
+        if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
             raise ValueError("Invalid input. Coordinates must be numbers")
+        self.x = x
+        self.y = y
 
     def __str__(self):
         return f"({self.x}, {self.y})"
@@ -21,15 +20,13 @@ class Point:
 
     # Punkty jako wektory 2D.
     def __add__(self, other):
-        self.x += other.x
-        self.y += other.y
-        return self.x, self.y
+        new_point = Point(self.x + other.x, self.y + other.y)
+        return new_point
 
     def __sub__(self, other):
-        self.x -= other.x
-        self.y -= other.y
-        return self.x, self.y
-
+        new_point = Point(self.x - other.x, self.y - other.y)
+        return new_point
+    
     def __mul__(self, other):  # v1 * v2, iloczyn skalarny, zwraca liczbę
         return self.x * other.x + self.y * other.y
 

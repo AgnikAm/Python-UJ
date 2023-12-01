@@ -19,14 +19,12 @@ class Rectangle:
         return not self == other
 
     def center(self):
-        return((self.pt1.x + self.pt2.x) / 2, (self.pt1.y + self.pt2.y) / 2)
+        center_point = Point((self.pt1.x + self.pt2.x) / 2, (self.pt1.y + self.pt2.y) / 2)
+        return center_point
 
     def area(self):
         return abs(self.pt1.x - self.pt2.x) * abs(self.pt1.y - self.pt2.y)
 
     def move(self, x, y):  # przesunięcie o (x, y)
-        self.pt1.x += x
-        self.pt2.x += x
-        self.pt1.y += y
-        self.pt2.y += y
-        return self.pt1.x, self.pt1.y, self.pt2.x, self.pt2.y
+        rectangle = Rectangle(self.pt1.x + x, self.pt1.y + y, self.pt2.x + x, self.pt2.y + y)
+        return rectangle

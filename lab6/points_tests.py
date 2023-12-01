@@ -5,9 +5,9 @@ from points import *
 class TestPoint(unittest.TestCase):
     def test__str__(self):
         self.assertEqual(Point(0, 0).__str__(), "(0, 0)")
-        self.assertEqual(Point(-7, 0).__str__(),  "(-7, 0)")
+        self.assertEqual(Point(-7.5, 0).__str__(),  "(-7.5, 0)")
         self.assertEqual(Point(0, -5).__str__(),  "(0, -5)")
-        self.assertEqual(Point(9, 9).__str__(),  "(9, 9)")
+        self.assertEqual(Point(9, 9.2).__str__(),  "(9, 9.2)")
 
     def test__repr__(self):
         self.assertEqual(Point(0, 0).__repr__(), "Point(0, 0)")
@@ -28,27 +28,27 @@ class TestPoint(unittest.TestCase):
         self.assertEqual(Point(9, 9).__ne__(Point(0, 0)),  True)
 
     def test__add__(self):
-        self.assertEqual(Point(0, 0).__add__(Point(0, 0)), (0, 0))
-        self.assertEqual(Point(-7, 0).__add__(Point(0, 0)),  (-7, 0))
-        self.assertEqual(Point(0, -5).__add__(Point(0, 0)),  (0, -5))
-        self.assertEqual(Point(9, 9).__add__(Point(0, 0)),  (9, 9))
-        self.assertEqual(Point(9, 9).__add__(Point(-2, -1)), (7, 8))
-        self.assertEqual(Point(0, -5).__add__(Point(3, -5)), (3, -10))
-        self.assertEqual(Point(3, -5).__add__(Point(-2, 1)), (1, -4))
-        self.assertEqual(Point(-8, 12).__add__(Point(5, -3)), (-3, 9))
-        self.assertEqual(Point(1, -1).__add__(Point(-1, 1)), (0, 0))
+        self.assertEqual(Point(0, 0).__add__(Point(0, 0)), Point(0, 0))
+        self.assertEqual(Point(-7, 0).__add__(Point(0, 0)),  Point(-7, 0))
+        self.assertEqual(Point(0, -5).__add__(Point(0, 0)),  Point(0, -5))
+        self.assertEqual(Point(9, 9).__add__(Point(0, 0)),  Point(9, 9))
+        self.assertEqual(Point(9, 9).__add__(Point(-2, -1)), Point(7, 8))
+        self.assertEqual(Point(0, -5).__add__(Point(3, -5)), Point(3, -10))
+        self.assertEqual(Point(3, -5).__add__(Point(-2, 1)), Point(1, -4))
+        self.assertEqual(Point(-8, 12).__add__(Point(5, -3)), Point(-3, 9))
+        self.assertEqual(Point(1, -1).__add__(Point(-1, 1)), Point(0, 0))
 
 
     def test__sub__(self):
-        self.assertEqual(Point(0, 0).__sub__(Point(0, 0)), (0, 0))
-        self.assertEqual(Point(-7, 0).__sub__(Point(0, 0)),  (-7, 0))
-        self.assertEqual(Point(0, -5).__sub__(Point(0, 0)),  (0, -5))
-        self.assertEqual(Point(9, 9).__sub__(Point(0, 0)),  (9, 9))
-        self.assertEqual(Point(9, 9).__sub__(Point(-2, -1)), (11, 10))
-        self.assertEqual(Point(0, -5).__sub__(Point(3, -5)), (-3, 0))
-        self.assertEqual(Point(3, -5).__sub__(Point(-2, 1)), (5, -6))
-        self.assertEqual(Point(-8, 12).__sub__(Point(5, -3)), (-13, 15))
-        self.assertEqual(Point(1, -1).__sub__(Point(-1, 1)), (2, -2))
+        self.assertEqual(Point(0, 0).__sub__(Point(0, 0)), Point(0, 0))
+        self.assertEqual(Point(-7, 0).__sub__(Point(0, 0)),  Point(-7, 0))
+        self.assertEqual(Point(0, -5).__sub__(Point(0, 0)),  Point(0, -5))
+        self.assertEqual(Point(9, 9).__sub__(Point(0, 0)),  Point(9, 9))
+        self.assertEqual(Point(9, 9).__sub__(Point(-2, -1)), Point(11, 10))
+        self.assertEqual(Point(0, -5).__sub__(Point(3, -5)), Point(-3, 0))
+        self.assertEqual(Point(3, -5).__sub__(Point(-2, 1)), Point(5, -6))
+        self.assertEqual(Point(-8, 12).__sub__(Point(5, -3)), Point(-13, 15))
+        self.assertEqual(Point(1, -1).__sub__(Point(-1, 1)), Point(2, -2))
 
     def test__mul__(self):
         self.assertEqual(Point(0, 0).__mul__(Point(0, 0)), 0)
