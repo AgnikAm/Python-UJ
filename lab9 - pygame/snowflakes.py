@@ -20,6 +20,7 @@ snowflake_image = pygame.image.load('snowflake.png')
 snowflake_image = pygame.transform.scale(snowflake_image, (40, 40))
 pygame.display.set_icon(snowflake_image)
 
+
 class Snowflake:
     def __init__(self):
         self.x = random.randint(10, width - 10)
@@ -32,13 +33,16 @@ class Snowflake:
 
         if self.remaining_horizontal_distance == 0:
             self.remaining_horizontal_distance = random.randint(-20, 20)
+
         else:
             if self.remaining_horizontal_distance < 0:
                 self.x -= 1
                 self.remaining_horizontal_distance += 1
+
             elif self.remaining_horizontal_distance > 0:
                 self.x += 1
                 self.remaining_horizontal_distance -= 1
+
 
 def difficulty_multiplier():
     if difficulty == 'easy':
@@ -48,14 +52,17 @@ def difficulty_multiplier():
     elif difficulty == 'hard':
         return 1.5
 
+
 def update_snowflakes_velocity():
     for snowflake in snowflakes:
         snowflake.velocity = random.uniform(1, 4) * difficulty_multiplier()
+
 
 def draw_text(text, position, size=40, color=(255, 255, 255)):
     font = pygame.font.Font(None, size)
     text_surface = font.render(text, True, color)
     screen.blit(text_surface, position)
+
 
 def draw_text_center(text, height, size=40, color=(255, 255, 255)):
     font = pygame.font.Font(None, size)
@@ -79,7 +86,7 @@ while True:
             elif game_state == "playing":
                 mouse_x, mouse_y = pygame.mouse.get_pos()
                 for snowflake in snowflakes:
-                    if ( snowflake.x < mouse_x < snowflake.x + snowflake_image.get_width() and
+                    if (snowflake.x < mouse_x < snowflake.x + snowflake_image.get_width() and
                         snowflake.y < mouse_y < snowflake.y + snowflake_image.get_height()
                     ):
                         score += 1
@@ -131,9 +138,10 @@ while True:
     elif game_state == "game over":
         draw_text_center("Game Over", height // 2 - 40)
         draw_text_center(f"Score: {score}", height // 2)
-        draw_text_center("Click to restart", height // 2 + 40)
+        draw_text_center("Press r to restart", height // 2 + 40)
 
-        if pygame.mouse.get_pressed()[0]:
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_r]:
             lives = 5
             score = 0
             snowflakes = []

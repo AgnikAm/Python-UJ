@@ -5,6 +5,7 @@ from PIL import Image, ImageTk
 window = tk.Tk()
 window.geometry('340x340')
 window.config(bg='#4f3d57')
+window.title('dice')
 
 def roll():
     result = random.randrange(1, 7)
@@ -12,7 +13,7 @@ def roll():
 
     image_path = f'{result}.png'
     dice_image = Image.open(image_path).convert('RGBA')
-    dice_image = dice_image.resize((180, 180))  # Resize the image if needed
+    dice_image = dice_image.resize((180, 180))
     dice_image = ImageTk.PhotoImage(dice_image)
     dice_label.config(image=dice_image)
     dice_label.image = dice_image
